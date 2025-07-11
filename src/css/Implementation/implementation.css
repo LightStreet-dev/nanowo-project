@@ -1,0 +1,93 @@
+.implementation {
+  display: flex;
+  justify-content: right;
+  background-color: var(--second-background-color);
+}
+.implementation-container{
+  padding-bottom: 15px;
+}
+.implementation-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-size: cover;
+  background-position: center;
+}
+.implementation-header {
+  color: var(--primary-text-color);
+  font-family: var(--font-family-second);
+  text-align: start;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 100%;
+  margin-top: 20px;
+}
+.implementation-text {
+  color: #ffffff;
+  opacity: 0.7;
+  text-align: start;
+  font-size: var(--mobail-font-size);
+}
+
+
+@media only screen and (min-width: 768px) {
+  .implementation-container {
+    display: flex;
+    justify-content: end;
+    background-image: url('../../img/svg/build-3.svg');
+    background-repeat: no-repeat;
+    background-size: 47%;
+    background-position: left;
+    padding-bottom: 25px;
+    opacity: 0;
+  }
+  .implementation-wrapper {
+    max-width: 345px;
+    justify-content: right;
+    align-items: end;
+  }
+  .implementation-header {
+    text-align: start;
+  }
+  .implementation-text {
+    text-align: start;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .implementation-container {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 50px;
+    background-repeat: no-repeat;
+    background-size: 43%;
+    background-position: 50px bottom;
+  }
+  .implementation-wrapper {
+    position: relative;
+    margin-top: 104px;
+    text-align: start;
+    max-width: 649px;
+    justify-content: right;
+    align-items: start;
+    gap: 53px;
+  }
+  .implementation-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 110%;
+    background-color: #758285;
+    top: 0;
+    left: -19px;
+  }
+  .implementation-header {
+    text-align: start;
+    font-size: 40px;
+  }
+  .implementation-text {
+    text-align: start;
+    font-size: var(--font-size-base);
+  }
+}

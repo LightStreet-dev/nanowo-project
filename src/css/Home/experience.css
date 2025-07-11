@@ -1,0 +1,63 @@
+.experience {
+  background-color: #ffffff;
+}
+.exp-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-around;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.exp-iteam {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  justify-content: space-between;
+}
+
+.exp-head {
+  text-align: center;
+  font-size: 20px;
+  font-family: Poiret One;
+  font-weight: 400;
+  color: var(--hover-text-color);
+  line-height: 50px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.exp-text {
+  text-align: center;
+  font-size: 14px;
+}
+@media only screen and (min-width: 769px) {
+  .exp-list {
+    gap: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  .exp-head {
+    font-size: 25px;
+  }
+  .exp-text {
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .experience {
+    margin-bottom: 50px;
+  }
+  .exp-list {
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    gap: 0;
+    padding-top: 29px;
+    padding-bottom: 29px;
+  }
+  .exp-head {
+    font-size: var(--fonnt-size-header-block);
+  }
+  .exp-text {
+    font-size: var(--font-size-base);
+  }
+}

@@ -1,0 +1,125 @@
+.attitude {
+  box-shadow: 0 3px 4px -5px rgba(0, 0, 0, 0.04),
+    0 7px 10px -5px rgba(0, 0, 0, 0.06), 0 18px 24px -5px rgba(0, 0, 0, 0.08),
+    0 60px 80px -5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  margin-bottom: 50px;
+}
+.attitude-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+
+}
+.attitude-wraper{
+  display: flex;
+  justify-content: space-between;
+}
+.attitude-video-wrapper {
+  opacity: 0;
+  max-width: 100%;
+  margin: auto 0;
+}
+.attitude-container-wrapper {
+  opacity: 0;
+}
+
+.attitude-video {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 600px;
+
+  aspect-ratio: 16 / 9;
+}
+.attitude-title {
+  font-family: var(--font-family-second);
+  font-weight: var(--font-weight-base);
+  font-size: 40px;
+  line-height: 1;
+  color: var(--section-text-color-dark);
+  margin-bottom: 25px;
+}
+.attitude-text {
+  font-size: var(--tablet-font-size);
+  font-size: 18px;
+  line-height: 1.39326;
+  color: var(--section-text-color-dark);
+  text-align: justify;
+  max-width: 600px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .attitude {
+    margin-bottom: 25px;
+  }
+  .attitude-video {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+  }
+  .attitude-container {
+    padding-bottom: 25px;
+
+  }
+  .attitude-wraper{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 30px;
+}
+
+  .attitude-title {
+    font-size: 40px;
+    line-height: 1;
+    color: var(--section-text-color-dark);
+    margin-bottom: 24px;
+  }
+  .attitude-text {
+    font-size: var(--tablet-font-size);
+    text-align: justify;
+    max-width: 768px;
+    width: 100%;
+  }
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 768px) {
+  .attitude {
+    margin-bottom: 15px;
+  }
+  .attitude-text {
+    max-width: 300px;
+    text-align: start;
+  }
+  .attitude-container {
+    padding-bottom: 15px;
+    gap: 30px;
+  }
+  .attitude-wraper{
+
+  gap: 15px;
+}
+
+  .attitude-title {
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 18px;
+    text-align: start;
+  }
+  .attitude-text {
+    font-size: var(--mobail-font-size);
+  }
+  .attitude-video {
+    max-width: 500px;
+    aspect-ratio: 16 / 9;
+  }
+  .attitude-video-wrapper {
+    opacity: 1;
+    width: 100%;
+  }
+  .attitude-container-wrapper {
+    opacity: 1;
+  }
+}

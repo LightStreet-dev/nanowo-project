@@ -1,0 +1,58 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+/* Common styles */
+@import url('./reset.css');
+@import url('./base.css');
+@import url('./container.css');
+@import url('./animations.css');
+
+/* Sections style */
+@import url('./header.css');
+@import url('./footer.css');
+
+/* Page Home style */
+@import url('./Home/hero.css');
+@import url('./Home/turnkey.css');
+@import url('./Home/experience.css');
+@import url('./Home/projects.css');
+@import url('./Home/benefits.css');
+@import url('./Home/about-us-home.css');
+@import url('./Home/reviews.css');
+@import url('./Home/whats-new.css');
+
+/* Page About style */
+@import url('./About/about-us.css');
+@import url('./About/attitude.css');
+@import url('./About/team.css');
+@import url('./About/services.css');
+@import url('./About/contact-us.css');
+
+/* Page Implementation style */
+@import url('./Implementation/implementation.css');
+@import url('./Implementation/projects.css');
+@import url('./Implementation/gallery-impl.css');
+@import url('./Implementation/contact-us.css');
+
+/* Page Contact style */
+@import url('./Contact/location.css');
+@import url('./Contact/address.css');
+
+/* Page Updates style */
+@import url('./Updates/update-hero.css');
+@import url('./Updates/recent-releases.css');
+@import url('./Updates/arhive.css');
+@import url('./Updates/releasePage.css');
+
+
+/* Page loading */
+
+@import url('./pageLoading/page-loding.css');
+
+/* modalContact Pop up*/
+@import url('./modalContactForm.css');
+
+@import url('./privacy.css');

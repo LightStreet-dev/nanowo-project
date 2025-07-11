@@ -1,0 +1,259 @@
+.imp-projects-container {
+  padding-top: 15px;
+}
+#year2021,#year2022,#year2023,#year2024,#year2025{
+  scroll-margin-top: 70px;
+}
+.imp-project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.imp-project-main-item {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: #ffffff;
+  max-width: fit-content;
+  gap: 12px;
+  box-shadow: 0px 2.7px 3.6px -5px rgba(0, 0, 0, 0.04);
+
+  box-shadow: 0px 7.5px 10px -5px rgba(0, 0, 0, 0.06);
+
+  box-shadow: 0px 18px 24.1px -5px rgba(0, 0, 0, 0.08);
+
+  box-shadow: 0px 60px 80px -5px rgba(0, 0, 0, 0.1);
+}
+.imp-project-info {
+  margin-bottom: 20px;
+}
+.imp-projects-header {
+  font-family: var(--font-family-second);
+  text-align: center;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 100%;
+ margin-bottom: 15px;
+}
+.imp-project-iteam {
+  display: flex;
+  flex-direction: column;
+  width: 261px;
+  padding: 0 10px;
+}
+.imp-project-info-header {
+  font-weight: 400;
+  font-size: var(--mobail-font-size);
+  margin-bottom: 4px;
+}
+.imp-project-info-street {
+  font-family: var(--font-family-second);
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 100%;
+}
+.imp-project-info-city {
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  margin-bottom: 20px;
+}
+.imp-project-info-text {
+  font-weight: 400;
+  font-size: var(--mobail-font-size);
+  line-height: 100%;
+}
+.imp-project-count {
+  font-family: var(--font-family-second);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 100%;
+}
+.imp-project-count-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.imp-project-year {
+  font-family: var(--font-family-second);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 100%;
+}
+.imp-project-year-text {
+  font-weight: 400;
+  font-size: var(--mobail-font-size);
+  line-height: 100%;
+}
+.imp-project-after-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 20px;
+}
+.imp-project-after-wrapper::after {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background-color: rgba(221, 221, 221, 1);
+  margin-top: 20px;
+}
+.imp-project-img {
+  display: none;
+}
+.imp-project-img-mob {
+  object-fit: cover;
+}
+
+.impl-btn{
+  display: flex;
+  color: rgba(42, 49, 55, 1);
+  fill: rgba(42, 49, 55, 1);
+justify-content: start;
+margin-bottom: 20px;
+cursor: pointer;
+
+}
+
+@media only screen and (min-width: 768px) {
+  #year2021, #year2022, #year2023, #year2024, #year2025{
+  scroll-margin-top: 90px;
+}
+  .imp-projects-container {
+  padding-top: 25px;
+  margin-bottom: 25px;
+}
+
+  .imp-projects-header {
+    margin-bottom: 25px;
+  opacity: 0;
+
+  }
+  .imp-project-iteam {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 40px;
+
+  }
+  .imp-project-info {
+    max-width: 261px;
+  }
+  .imp-project-main-item {
+    gap: 20px;
+     transform: scale(0);
+  opacity: 0;
+  }
+
+  .imp-project-info-street {
+    font-size: 30px;
+  }
+  .imp-project-info-city {
+    font-size: 18px;
+  }
+  .imp-project-info-text {
+ font-size: var(--mobail-font-size);
+  }
+  .imp-project-count {
+    font-size: 35px;
+  }
+  .imp-project-count-text {
+    font-size: 18px;
+  }
+  .imp-project-year {
+    font-size: 35px;
+  }
+  .imp-project-year-text {
+    font-size: var(--tablet-font-size);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .imp-project-img-mob {
+    display: none;
+  }
+  .imp-projects-container {
+  padding-top: 50px;
+  margin-bottom: 50px;
+}
+.imp-project-img-item{
+  position: relative;
+  overflow:hidden;
+}
+  .imp-project-img {
+    display: block;
+    object-fit:cover;
+    max-width:280px;
+    height: 100%;
+  }
+  .picture-link{
+     height: 100%;
+
+  }
+  .imp-project-main-item {
+    flex: 1 1 calc(50% - 12px);
+    flex-direction: row;
+    gap: 4px;
+    padding-top: clamp(10px, 3vw, 90px);
+    padding-left: clamp(10px, 3vw, 90px);
+    min-height: 615px;
+     transform: scale(0);
+  opacity: 0;
+  }
+  .imp-project-iteam {
+    flex-direction: column;
+    width: calc(50% - 12px);
+    justify-content: start;
+    padding: 0;
+  }
+  .imp-project-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px 12px;
+
+    justify-content: space-between;
+  }
+
+  .imp-projects-header {
+    font-size: 40px;
+    text-align: start;
+    margin-bottom: 15px;
+
+  opacity: 0;
+    margin-bottom: 30px;
+  }
+  .imp-project-info-header {
+    font-size: 20px;
+  }
+  .imp-project-info-street {
+    font-size: 27px;
+
+  }
+  .imp-project-info-text {
+    font-size: var(--mobail-font-size);
+height: 120px;
+  }
+  .imp-project-info-text-TALGO{
+    height: 80px;
+  }
+  .imp-project-count {
+    font-size: 40px;
+  }
+  .imp-project-count-text {
+    font-size: var(--tablet-font-size);
+  }
+  .imp-project-year {
+    font-size: 40px;
+  }
+  .imp-project-year-text {
+    font-size: var(--tablet-font-size);
+  }
+  .imp-project-after-wrapper::after {
+    margin-top: 25px;
+  }
+}

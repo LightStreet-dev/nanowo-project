@@ -1,0 +1,107 @@
+.services {
+  background-image: url(../../img/About/services-bg-1x-min.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.services-container {
+  padding-left: 531px;
+}
+
+.services-title {
+  margin-bottom: 32px;
+  font-family: var(--font-family-second);
+  font-weight: var(--font-weight-base);
+  font-size: 40px;
+  line-height: 1;
+  color: var(--section-text-color-dark);
+}
+
+.services-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  height: 60px;
+}
+.services-list-item-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: var(--font-weight-base);
+  font-size: 40px;
+  line-height: 1;
+  color: #25abff;
+  border-bottom: 1px solid #25abff;
+  width: 76px;
+  height: 60px;
+}
+.services-list-item-text {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  width: 100%;
+  font-weight: var(--font-weight-base);
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--section-text-color-dark);
+}
+
+@media only screen and (max-width: 1200px) {
+  .services-container {
+    padding-left: 238px;
+  }
+
+  .services-title {
+    margin-bottom: 24px;
+    font-size: 40px;
+  }
+
+  .services-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 48px;
+  }
+
+  .services-list-item-number {
+    font-size: 40px;
+    width: 60px;
+    height: 48px;
+  }
+
+  .services-list-item-text {
+    font-size: var(--tablet-font-size);
+    font-size: 16px;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  .services-container {
+    padding-left: 75px;
+  }
+  .services-title {
+    margin-bottom: 18px;
+    font-size: 28px;
+  }
+  .services-list-item {
+    gap: 8px;
+    height: 32px;
+  }
+
+  .services-list-item-number {
+    font-size: 28px;
+    width: 48px;
+    height: 100%;
+  }
+
+  .services-list-item-text {
+    font-size: 10px;
+  }
+}

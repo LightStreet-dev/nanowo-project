@@ -1,0 +1,53 @@
+.about-us-about {
+  margin-bottom: 50px;
+  height: 850px;
+  background-image: url(../../img/About/background.jpg);
+  background-position: center 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about-us-about-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media (min-resolution: 192dpi) {
+  .about-us-about {
+    background-image: url(../../img/About/background-2x.jpg);
+  }
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    max-width: var(--tablet-container);
+    padding: 0 32px;
+  }
+  .about-us-about {
+    height: 890px;
+    margin-bottom: 25px;
+  }
+
+
+
+
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: var(--mob-container);
+    padding: 0 32px;
+  }
+
+  .about-us-about {
+    margin-bottom: 15px;
+    height: 712px;
+  }
+
+
+
+}

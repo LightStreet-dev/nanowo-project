@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --fonnt-size-header-block: 30px;
+  --font-family-base: 'Lato', sans-serif;
+  --font-family-second: 'Poiret One';
+  --font-size-base: 20px;
+  --mobail-font-size: 16px;
+  --tablet-font-size: 20px;
+  --line-height-base: 1.5;
+  --font-weight-base: 400;
+  --primary-background-color: white;
+  --second-background-color: #2a3137;
+  --primary-text-color: #f6f6f6;
+  --hover-text-color: #25abff;
+  --section-text-color-dark: #2a3137;
+  --section-text-color-white: #ffffff;
+  --primary-svg-fill: #dddddd;
+  --mob-container: 375px;
+  --tablet-container: 768px;
+  --desktop-conmtainer: 1280px;
+  --transition-effect: 0.3s ease-in-out;
+  --transition-duration: 0.3s;
+  --transition-timing-function: ease-in-out;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-base);
+  background-color: var(--primary-background-color);
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.noscroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden ;
+  width: 100%;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+[id] {
+  scroll-margin-top: 80px; /* Висота хедера */
+}
+.hidden {
+  display: none !important;
+}
+
+.contact-btn {
+  display: flex;
+  margin: 0 auto;
+  color: var(--primary-text-color);
+  font-size: 14px;
+  line-height: 19.8px;
+  text-align: center;
+  padding: 12px 22px;
+  max-width: 158px;
+  border: 1px solid var(--primary-text-color);
+  transition: color, var(--transition-effect),
+    border-clor var(--transition-effect);
+  cursor: pointer;
+}
+.contact-btn:hover {
+  color: var(--hover-text-color);
+  border-color: var(--hover-text-color);
+}
+.contact-btn:active {
+  color: var(--hover-text-color);
+  border-color: var(--hover-text-color);
+}
+.contact-btn:focus {
+  color: var(--hover-text-color);
+  border-color: var(--hover-text-color);
+}

@@ -1,0 +1,204 @@
+.hero {
+  background: linear-gradient(
+      180deg,
+      rgba(29, 103, 120, 0.5) 0%,
+      rgba(36, 36, 36, 0) 60%
+    ),
+    url('../../img/Home/hero-video/backgroundimg-1x.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-top: 15px;
+  background-repeat: no-repeat;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero {
+    background: linear-gradient(
+        180deg,
+        rgba(29, 103, 120, 0.5) 0%,
+        rgba(36, 36, 36, 0) 60%
+      ),
+      url('../../img/Home/hero-video/backgroundimg-2x.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.hero-section {
+  position: relative;
+  z-index: 2; /* Контент поверх відео */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-headline-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 200px;
+}
+.hero-undrer-text {
+  text-align: center;
+  width: 100%;
+
+  margin-bottom: 5px;
+  font-size: 17px;
+  color: var(--primary-text-color);
+}
+
+.hero-headline {
+  text-align: center;
+  width: 100%;
+  font-family: var(--font-family-base);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-text-color);
+}
+.hero-list {
+  display: inline-flex;
+ width: 99%;
+ justify-content: space-between;
+}
+.helro-list-text {
+  color: var(--primary-text-color);
+  font-size: 14px;
+  transition: color var(--transition-effect);
+}
+
+.herro-btn {
+  color: var(--primary-text-color);
+  font-size: 14px;
+  line-height: 19.8px;
+  text-align: center;
+  padding: 12px 22px;
+  margin-bottom: 30px;
+  max-width: 300px;
+  transition: color, var(--transition-effect);
+  background-color: var(--second-background-color);
+}
+.herro-btn:hover {
+  color: var(--hover-text-color);
+}
+.herro-btn:active {
+  color: var(--hover-text-color);
+}
+.herro-btn:focus {
+  color: var(--hover-text-color);
+}
+
+/*====================TABLET===================*/
+@media only screen and (min-width: 769px) {
+  .hero-gs1,
+  .hero-gs2,
+  .hero-gs3 {
+    opacity: 0;
+  }
+  .hero {
+    margin-bottom: 25px;
+    background-size: 120%;
+    background-position: -10px center;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    min-height: 500px;
+  }
+
+  .hero-headline {
+    font-size: 40px;
+    font-weight: 400;
+    opacity: 0;
+    padding: 0;
+  }
+  .hero-undrer-text {
+    text-align: center;
+    font-size: 31px;
+    opacity: 0;
+    margin-bottom: 0;
+
+  }
+  .hero-list {
+
+}
+
+  .hero-headline-wrapper {
+    margin-bottom: 220px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .hero {
+    margin-bottom: 50px;
+    background-size: 110%;
+    background-position: -0px 54%;
+
+    background-repeat: no-repeat;
+  }
+  .hero-section {
+    position: relative;
+  }
+
+  .hero-headline {
+    font-weight: 700;
+    font-size: clamp(70px, 10vw, 83px);
+    font-size: 45px;
+
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .hero-undrer-text {
+    font-weight: 400;
+    font-size: 36px;
+  }
+  .hero-list {
+    gap: 160px;
+  }
+  .helro-list-text {
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 37.72px;
+    text-align: center;
+  }
+
+  /* .herro-btn {
+    color: var(--primary-text-color);
+    font-size: 24px;
+    margin-bottom: 100px;
+    text-align: center;
+    padding: 20px 16px;
+
+    max-width: 310px;
+    transition: color, var(--transition-effect),
+      border-color var(--transition-effect);
+  } */
+  .hero-headline-wrapper {
+    margin-bottom: 420px;
+  }
+}
+
+@media only screen and (min-width: 1540px) {
+  .hero-headline-wrapper {
+    margin-bottom: 560px;
+  }
+  .hero {
+    margin-bottom: 50px;
+    background-size: 110%;
+    background-position: 0px 54%;
+    padding-top: 100px;
+    background-repeat: no-repeat;
+  }
+  .hero-headline {
+    font-size: 60px;
+  }
+  .hero-undrer-text {
+    font-size: 48px;
+  }
+  .helro-list-text {
+    font-family: var(--font-family-base);
+    font-size: 20px;
+  }
+  .hero-list {
+    gap: 230px;
+  }
+}

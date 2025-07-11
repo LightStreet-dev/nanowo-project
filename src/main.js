@@ -1,0 +1,12 @@
+import './js/headerMenu';
+import './js/homeSwipers';
+import './js/modalForm';
+import './js/updatePage';
+import './js/form';
+import './js/sendMail';
+import './js/implScrol';
+import './js/galerry-impl/gallery-impl';
+import './js/release';
+import './js/privacy.modal';
+/*==========animations================ */
+import './js/animations/mainAnimation';
