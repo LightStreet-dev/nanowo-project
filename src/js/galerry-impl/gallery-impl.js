@@ -1,6 +1,7 @@
 import galleriesList from './gallery-db.js';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const galleryList = document.querySelector('.gallery');
 const implLinkBtn = document.querySelectorAll('.js-impl-gallery');
 const impProjectsPage = document.querySelector('.hidden-wrap');
@@ -9,8 +10,14 @@ const impBackBtn = document.querySelector('#imp-gallery-back');
 const loadMoreBtn = document.querySelector('#load-more');
 const LoadPageObserver = document.querySelector('.load-more');
 
+let lightbox = null;
+let currentGallery = [];
+let loadedCount = 0;
+
+let ITEMS_PER_PAGE = window.innerWidth >= 1200 ? 6 : 12;
+
 const observer = new IntersectionObserver(
-  (entries, observer) => {
+  entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         renderNextImages();
@@ -24,30 +31,27 @@ const observer = new IntersectionObserver(
   }
 );
 
-
-let currentGallery = [];
-let loadedCount = 0;
-
-let ITEMS_PER_PAGE;
-
-if (window.innerWidth >= 1200) {
-  ITEMS_PER_PAGE = 6;
-} else {
-  ITEMS_PER_PAGE = 12;
-}
-
 function backToProjects() {
   impProjectsPage.classList.remove('hidden');
   impGalleryPage.classList.add('hidden');
+
+  if (lightbox) {
+    try {
+      lightbox.destroy();
+    } catch (e) {
+      console.warn('Lightbox destroy error:', e);
+    }
+    lightbox = null;
+  }
+
   galleryList.innerHTML = '';
   currentGallery = [];
   loadedCount = 0;
-  // loadMoreBtn.classList.add('hidden');
 }
 
 if (impBackBtn) {
   impBackBtn.addEventListener('click', () => {
-    history.back(); // Тригеримо popstate — і спрацює scroll
+    history.back();
   });
 }
 
@@ -57,15 +61,25 @@ implLinkBtn.forEach(btn => {
 
 function handleCreateGallery(evt) {
   evt.preventDefault();
-  // Зберігаємо scrollY перед переходом
-const scrollY = window.scrollY;
-history.replaceState({ section: 'imp-projects', scrollY }, '', location.href);
 
-impProjectsPage.classList.add('hidden');
-impGalleryPage.classList.remove('hidden');
+  const scrollY = window.scrollY;
+  history.replaceState({ section: 'imp-projects', scrollY }, '', location.href);
 
-const buttonData = evt.currentTarget.dataset.implgallery;
-const gallery = galleriesList[buttonData];
+  impProjectsPage.classList.add('hidden');
+  impGalleryPage.classList.remove('hidden');
+
+  const buttonData = evt.currentTarget.dataset.implgallery;
+  const gallery = galleriesList[buttonData];
+
+  if (lightbox) {
+    try {
+      lightbox.destroy();
+    } catch (e) {
+      console.warn('Lightbox destroy error:', e);
+    }
+    lightbox = null;
+  }
+
   galleryList.innerHTML = '';
 
   if (gallery && gallery.length > 0) {
@@ -73,18 +87,18 @@ const gallery = galleriesList[buttonData];
     loadedCount = 0;
 
     renderNextImages();
-    lightbox.refresh();
-    // loadMoreBtn.classList.remove('hidden');
-  if (LoadPageObserver) {
-  observer.observe(LoadPageObserver);
-  setTimeout(() => {
-    checkIfNeedMore();
-  }, 300); // Перевіряємо, чи треба ще підвантажити
-}
+
+
+
+    if (LoadPageObserver) {
+      observer.observe(LoadPageObserver);
+      setTimeout(checkIfNeedMore, 300);
+    }
   } else {
     galleryList.innerHTML = '<p> 🏗️ Zdjęcia tej realizacji już wkrótce!</p>';
-    loadMoreBtn.classList.add('hidden');
+    if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
   }
+
   setTimeout(() => {
     toScrollProject('implementation-gallery');
   }, 100);
@@ -97,10 +111,11 @@ const gallery = galleriesList[buttonData];
     );
   }
 }
+
 window.addEventListener('popstate', event => {
   if (event.state?.section === 'imp-projects') {
     backToProjects();
-    lightbox.close();
+
     setTimeout(() => {
       if (event.state.scrollY !== undefined) {
         window.scrollTo({
@@ -113,60 +128,69 @@ window.addEventListener('popstate', event => {
     }, 400);
   }
 });
-function createHtmlEl(arr) {
-  return arr
-    .map(
-      item => `
-        <li class="gallery-item">
-          <a class="gallery-link" href="${item['1x']}">
-            <img
-              class="gallery-image"
-              src="${item['1x']}"
-               srcset="${item['1x']} 1x, ${item['2x']} 2x"
-              alt="img"
-
-            />
-          </a>
-        </li>
-      `
-    )
-    .join('');
-}
-let lightbox = new SimpleLightbox('.gallery a', {
-  history: false,
-});
-
 
 function renderNextImages() {
   const nextItems = currentGallery.slice(
     loadedCount,
     loadedCount + ITEMS_PER_PAGE
   );
+
   galleryList.insertAdjacentHTML('beforeend', createHtmlEl(nextItems));
   loadedCount += ITEMS_PER_PAGE;
 
-  if (loadedCount >= currentGallery.length ) {
-    // loadMoreBtn.classList.add('hidden');
+ if (!lightbox) {
+  lightbox = new SimpleLightbox('.gallery a', { history: false });
+
+  lightbox.on('shown.simplelightbox', () => {
+    console.log('Фото відкрито через lightbox.on');
+    document.body.classList.add('no-scroll');
+  });
+ }
+ if(lightbox){
+  lightbox.on('closed.simplelightbox', () => {
+    console.log('Фото закрито');
+    document.body.classList.remove('no-scroll');
+    lightbox.refresh()
+  });
+}
+
+  if (loadedCount >= currentGallery.length) {
     if (LoadPageObserver) {
       observer.unobserve(LoadPageObserver);
 
     }
   }
-   lightbox.refresh();
 }
+
 function checkIfNeedMore() {
+  if (!LoadPageObserver) return;
+
   const rect = LoadPageObserver.getBoundingClientRect();
   if (rect.top < window.innerHeight) {
     renderNextImages();
-
   }
-
 }
 
 window.addEventListener('load', () => {
-  setTimeout(checkIfNeedMore, 300); // трохи почекати після рендеру
+  setTimeout(checkIfNeedMore, 300);
 });
-// if (loadMoreBtn) {
-//   loadMoreBtn.addEventListener('click', renderNextImages);
-// }
+
+function createHtmlEl(arr) {
+  return arr
+    .map(
+      item => `
+    <li class="gallery-item">
+      <a class="gallery-link" href="${item['1x']}">
+        <img
+          class="gallery-image"
+          src="${item['1x']}"
+          srcset="${item['1x']} 1x, ${item['2x']} 2x"
+          alt="img"
+        />
+      </a>
+    </li>
+  `
+    )
+    .join('');
+}
 
