@@ -2,8 +2,6 @@
   background-color: var(--second-background-color);
   display: flex;
   padding-top: 15px;
-
-
 }
 .project-header {
   display: flex;
@@ -33,8 +31,9 @@
   width: 100%;
   height: 100%;
 }
-.project-wrapper {
+.swiper-wrapper .project-wrapper {
   display: flex;
+  height: auto;
 }
 
 .investor-slide {
@@ -223,8 +222,8 @@
     justify-content: space-between;
     padding-bottom: 25px;
     margin: 0;
-     overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    position: relative;
   }
   .project-head {
     text-align: start;
@@ -250,25 +249,7 @@
     gap: 12px;
     margin-left: auto;
   }
-  .smal-project-list {
-    display: flex;
-    gap: 30px;
-    justify-content: end;
-  }
-  .smal-project-item {
-    display: flex;
-    flex-direction: column;
-    width: 85px;
-    height: 85px;
-  }
 
-  .smal-project-text {
-    color: #dddddd;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
-  }
   .contact-btn {
     margin: 0;
     color: var(--primary-text-color);
@@ -286,12 +267,12 @@
   .slider-container {
     display: flex;
     flex-direction: row;
-    gap: 0;
+gap: 0;
     justify-content: space-between;
-    gap: 0;
+
     justify-content: space-between;
     overflow: hidden;
-  position: relative;
+    position: relative;
   }
 
   .project-pagination .swiper-pagination-bullet {
@@ -300,10 +281,13 @@
   }
   .project-img {
     padding-top: 30px;
-    height: auto;
+height: auto;
     width: auto;
-
   }
+  .swiper-wrapper .project-slid-img{
+    max-width: 550px;
+  }
+
   .investor-slide {
     text-align: start;
     margin-top: 20px;
@@ -330,10 +314,8 @@
     font-size: var(--tablet-font-size);
   }
   .slide-info {
-    gap: 48px;
     min-width: 490px;
     max-width: 510px;
-    flex-direction: column;
   }
   .slider-links {
     display: inline-flex;
@@ -346,14 +328,12 @@
     cursor: pointer;
   }
 
-  .smal-project-text {
-    color: #dddddd;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
-  }
   .contact-btn {
     font-size: 18px;
   }
 }
+@media only screen and (min-width: 1540px) {
+  .swiper-wrapper .project-slid-img{
+    max-width: 700px;
+  }}
+
