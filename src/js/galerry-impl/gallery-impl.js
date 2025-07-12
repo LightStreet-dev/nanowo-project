@@ -88,11 +88,11 @@ function handleCreateGallery(evt) {
 
     renderNextImages();
 
-
-
     if (LoadPageObserver) {
       observer.observe(LoadPageObserver);
-      setTimeout(()=>{checkIfNeedMore, lightbox.refresh()}, 300);
+      setTimeout(() => {
+        checkIfNeedMore, lightbox.refresh();
+      }, 300);
     }
   } else {
     galleryList.innerHTML = '<p> 🏗️ Zdjęcia tej realizacji już wkrótce!</p>';
@@ -138,26 +138,18 @@ function renderNextImages() {
   galleryList.insertAdjacentHTML('beforeend', createHtmlEl(nextItems));
   loadedCount += ITEMS_PER_PAGE;
 
- if (!lightbox) {
-  lightbox = new SimpleLightbox('.gallery a', { history: false });
-
-  lightbox.on('shown.simplelightbox', () => {
-    console.log('Фото відкрито через lightbox.on');
-    document.body.classList.add('no-scroll');
-  });
- }
- if(lightbox){
-  lightbox.on('closed.simplelightbox', () => {
-    console.log('Фото закрито');
-
-    lightbox.refresh()
-  });
-}
+  if (!lightbox) {
+    lightbox = new SimpleLightbox('.gallery a', { history: false });
+  }
+  if (lightbox) {
+    lightbox.on('closed.simplelightbox', () => {
+      lightbox.refresh();
+    });
+  }
 
   if (loadedCount >= currentGallery.length) {
     if (LoadPageObserver) {
       observer.unobserve(LoadPageObserver);
-
     }
   }
 }
@@ -193,4 +185,3 @@ function createHtmlEl(arr) {
     )
     .join('');
 }
-
