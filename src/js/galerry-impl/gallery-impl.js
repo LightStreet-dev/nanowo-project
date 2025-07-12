@@ -157,7 +157,7 @@ function renderNextImages() {
   if (loadedCount >= currentGallery.length) {
     if (LoadPageObserver) {
       observer.unobserve(LoadPageObserver);
-
+  lightbox.refresh()
     }
   }
 }
