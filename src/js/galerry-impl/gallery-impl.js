@@ -88,11 +88,12 @@ function handleCreateGallery(evt) {
 
     renderNextImages();
 
-
-
     if (LoadPageObserver) {
       observer.observe(LoadPageObserver);
-      setTimeout(checkIfNeedMore, 300);
+      setTimeout(() => {
+        checkIfNeedMore, lightbox.refresh();
+      }, 300);
+      lightbox.refresh();
     }
   } else {
     galleryList.innerHTML = '<p> 🏗️ Zdjęcia tej realizacji już wkrótce!</p>';
@@ -138,26 +139,26 @@ function renderNextImages() {
   galleryList.insertAdjacentHTML('beforeend', createHtmlEl(nextItems));
   loadedCount += ITEMS_PER_PAGE;
 
- if (!lightbox) {
-  lightbox = new SimpleLightbox('.gallery a', { history: false });
+  if (!lightbox) {
+    lightbox = new SimpleLightbox('.gallery a', { history: false });
 
-  lightbox.on('shown.simplelightbox', () => {
-    console.log('Фото відкрито через lightbox.on');
-    document.body.classList.add('no-scroll');
-  });
- }
- if(lightbox){
-  lightbox.on('closed.simplelightbox', () => {
-    console.log('Фото закрито');
-    document.body.classList.remove('no-scroll');
-    lightbox.refresh()
-  });
-}
+    lightbox.on('shown.simplelightbox', () => {
+      console.log('Фото відкрито через lightbox.on');
+      document.body.classList.add('no-scroll');
+    });
+  }
+  if (lightbox) {
+    lightbox.on('closed.simplelightbox', () => {
+      console.log('Фото закрито');
+      document.body.classList.remove('no-scroll');
+      lightbox.refresh();
+    });
+  }
 
   if (loadedCount >= currentGallery.length) {
     if (LoadPageObserver) {
       observer.unobserve(LoadPageObserver);
-  lightbox.refresh()
+      lightbox.refresh();
     }
   }
 }
@@ -193,4 +194,3 @@ function createHtmlEl(arr) {
     )
     .join('');
 }
-
