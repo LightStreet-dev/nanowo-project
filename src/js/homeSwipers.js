@@ -7,6 +7,7 @@ new Swiper('.projectSwiper', {
   slidesPerView: 1,
   spaceBetween: 10,
   autoHeight: true,
+  initialSlide: 5,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',

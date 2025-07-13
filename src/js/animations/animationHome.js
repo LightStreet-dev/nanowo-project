@@ -6,15 +6,18 @@ gsap.registerPlugin(ScrollTrigger);
 function animationNumbers(tl) {
   let delay = 0.2;
   document.querySelectorAll('.exp-iteam').forEach(item => {
-    tl.from(
-      item,
-      {
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-      },
-      delay
-    );
+    tl.fromTo(
+  item,
+  {
+    opacity: 0,
+  },
+  {
+    opacity: 1,
+    duration: 1,
+    ease: 'power3.out',
+  },
+  delay
+);
     delay += 0.2;
   });
 

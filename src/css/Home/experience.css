@@ -36,6 +36,9 @@
     padding-top: 25px;
     padding-bottom: 25px;
   }
+  .exp-iteam{
+    opacity: 0;
+  }
   .exp-head {
     font-size: 25px;
   }
