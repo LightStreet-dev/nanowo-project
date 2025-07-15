@@ -102,7 +102,7 @@ function handleCreateGallery(evt) {
   setTimeout(() => {
   const element = document.getElementById('implementation-gallery');
   if (element) {
-    const offset = element.getBoundingClientRect().top + window.pageYOffset - 80;
+    const offset = element.getBoundingClientRect().top + window.pageYOffset - 50;
     window.scrollTo({
       top: offset,
       behavior: 'smooth'
