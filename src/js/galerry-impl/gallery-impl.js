@@ -100,8 +100,15 @@ function handleCreateGallery(evt) {
   }
 
   setTimeout(() => {
-    toScrollProject('implementation-gallery');
-  }, 300);
+  const element = document.getElementById('implementation-gallery');
+  if (element) {
+    const offset = element.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({
+      top: offset,
+      behavior: 'smooth'
+    });
+  }
+}, 300);
 
   if (history.state?.section !== 'gallery') {
     history.pushState(
