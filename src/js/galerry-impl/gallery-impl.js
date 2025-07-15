@@ -101,7 +101,7 @@ function handleCreateGallery(evt) {
 
   setTimeout(() => {
     toScrollProject('implementation-gallery');
-  }, 100);
+  }, 300);
 
   if (history.state?.section !== 'gallery') {
     history.pushState(
