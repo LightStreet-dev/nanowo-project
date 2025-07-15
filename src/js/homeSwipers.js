@@ -20,6 +20,7 @@ new Swiper('.projectSwiper', {
     enabled: true,
     onlyInViewport: false,
   },
+  loop: true,
 });
 
 let swiper = null;
