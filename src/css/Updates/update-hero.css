@@ -1,5 +1,5 @@
 .updates-hero {
-  background-color: var(--primary-background-color);
+  height: 70vh;
 }
 .updates-hero-wrapper {
   display: flex;
