@@ -44,7 +44,7 @@
   color: var(--section-text-color-dark);
 }
 .team-list-card-position {
-  max-width: 260px;
+  max-width:310px;
   margin-bottom: 46px;
   font-weight: var(--font-weight-base);
   font-size: 14px;
