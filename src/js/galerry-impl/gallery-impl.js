@@ -35,6 +35,8 @@ function backToProjects() {
   impProjectsPage.classList.remove('hidden');
   impGalleryPage.classList.add('hidden');
 
+
+
   if (lightbox) {
     try {
       lightbox.destroy();
@@ -157,6 +159,7 @@ function renderNextImages() {
   if (loadedCount >= currentGallery.length) {
     if (LoadPageObserver) {
       observer.unobserve(LoadPageObserver);
+      lightbox.refresh();
     }
   }
 }
@@ -167,6 +170,8 @@ function checkIfNeedMore() {
   const rect = LoadPageObserver.getBoundingClientRect();
   if (rect.top < window.innerHeight) {
     renderNextImages();
+
+
   }
 }
 
